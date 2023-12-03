@@ -1,7 +1,7 @@
 import schemaJson from './schema.json';
-import { isAtLeastGraphQL15 } from './helpers';
 
 import {
+  isAtLeastGraphQL15,
   rule,
   ruleTester,
   parserOptions

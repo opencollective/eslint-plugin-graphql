@@ -137,7 +137,7 @@ export function typeNamesShouldBeCapitalized(context) {
   return {
     NamedType(node) {
       const typeName = node.name.value;
-      if (typeName[0] == typeName[0].toLowerCase()) {
+      if (typeName[0] === typeName[0].toLowerCase()) {
         context.reportError(
           new GraphQLError(
             "All type names should start with a capital letter",
