@@ -9,8 +9,11 @@ module.exports = {
       },
     ],
   ],
+  // Not needed globally, only in specific tests
+  /*
   plugins: [
     "@babel/plugin-transform-react-jsx",
     ["@babel/plugin-proposal-decorators", { legacy: true }],
   ],
+  */
 };

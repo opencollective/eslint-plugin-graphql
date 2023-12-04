@@ -1,5 +1,3 @@
-import path from 'path';
-
 import { rules } from "../../src";
 import schemaJson from "../schema.json";
 
@@ -9,7 +7,11 @@ const parser = require.resolve("@babel/eslint-parser");
 
 const parserOptions = {
   babelOptions: {
-    "configFile": path.resolve(__dirname, "../../.babelrc.js")
+    // We could but don't need to use the global configuration
+    // "configFile": require('path').resolve(__dirname, "../../.babelrc.js"),
+    plugins: [
+      ["@babel/plugin-proposal-decorators", { legacy: true }],
+    ],
   }
 };
 
