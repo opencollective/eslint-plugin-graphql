@@ -137,7 +137,7 @@ export function typeNamesShouldBeCapitalized(context) {
   return {
     NamedType(node) {
       const typeName = node.name.value;
-      if (typeName[0] == typeName[0].toLowerCase()) {
+      if (typeName[0] === typeName[0].toLowerCase()) {
         context.reportError(
           new GraphQLError(
             "All type names should start with a capital letter",
@@ -155,7 +155,7 @@ export function noDeprecatedFields(context) {
   return {
     Field(node) {
       const fieldDef = context.getFieldDef();
-      if (fieldDef && fieldDef.isDeprecated) {
+      if (fieldDef && (fieldDef.isDeprecated || fieldDef.deprecationReason)) {
         const parentType = context.getParentType();
         if (parentType) {
           const reason = fieldDef.deprecationReason;
@@ -173,7 +173,7 @@ export function noDeprecatedFields(context) {
       // context is of type ValidationContext which doesn't export getEnumValue.
       // Bypass the public API to grab that information directly from _typeInfo.
       const enumVal = context._typeInfo.getEnumValue();
-      if (enumVal && enumVal.isDeprecated) {
+      if (enumVal && (enumVal.isDeprecated || enumVal.deprecationReason)) {
         const type = getNamedType(context.getInputType());
         if (!type) {
           return;
