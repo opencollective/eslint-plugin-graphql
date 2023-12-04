@@ -12,8 +12,10 @@ function execute(file) {
     overrideConfig: {
       plugins: ['graphql'],
       parserOptions: {
-        ecmaVersion: 6,
         sourceType: 'module'
+      },
+      env: {
+        es2018: true,
       },
       // The following is the new recommended way in eslint
       // https://eslint.org/docs/latest/extend/custom-processors

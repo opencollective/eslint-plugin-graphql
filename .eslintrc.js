@@ -6,6 +6,6 @@ module.exports = {
   env: {
     mocha: true,
     node: true,
-    es2024: true,
+    es2018: true,
   },
 };
